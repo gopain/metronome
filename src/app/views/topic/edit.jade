@@ -1,0 +1,24 @@
+extends ../layout/frontend
+include ../util/form
+
+block content
+  .panel
+    .topic.edit
+      +form("/topic", "put")(class="forms")
+        input(type="hidden" name="node_id" value="1")
+        label
+          span= i18n("title")
+          input(type="text" name="title" value="")
+        label
+          span= i18n("body")
+          textarea(name="body")
+        button.radius.small= i18n("create")
+
+    //- ul.selector.selectable
+    //-   each node in nodes
+
+block sidebar
+  .panel
+
+block title
+  = i18n("topic")

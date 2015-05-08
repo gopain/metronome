@@ -1,0 +1,16 @@
+extends ../../layout/frontend
+
+block content
+  .panel.shallow
+    ul.tabs.tiles.with-2
+      li.tab-title.active
+        a.text-center(href="/#{user.username}/followers")= i18n("followers")
+      li.tab-title
+        a.text-center(href="/#{user.username}/following")= i18n("following")
+
+block sidebar
+  .panel
+    include ../../partial/vcard
+
+block title
+  = i18n("user")

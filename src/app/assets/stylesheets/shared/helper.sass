@@ -1,0 +1,28 @@
+.forms
+  label
+    > span
+      display: inline-block
+      margin-bottom: .5em
+  button
+    margin-bottom: .25em
+
+.tiles
+  &.with-2
+    li
+      width: 50%
+
+.avatar
+  display: inline-block
+  img
+    line-height: 1
+    vertical-align: middle
+  &.round
+    img
+      +border-radius(100%)
+  &.radius
+    img
+      +border-radius(.25em)
+
+.shallow
+  &.panel
+    padding: 5px 0

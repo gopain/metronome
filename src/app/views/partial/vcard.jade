@@ -1,0 +1,19 @@
+.user.vcard
+  a.avatar.round(href="/")
+    img(src="https://secure.gravatar.com/avatar/7e3317ddcdce0fcfddbb267ff01331b1?d=mm&r=pg&s=320")
+  ul.stat.tiles.with-2
+    li
+      a(href="/#{user.username}/followers")
+        = 2
+        span= i18n("followers")
+    li
+      a(href="/#{user.username}/following")
+        = 10
+        span= i18n("following")
+
+//-   .vcard-action
+//-     - var username = isAuthenticated ? currentUser.username : null
+//-     if username === user.username
+//-       a(href="/setting/profile", class="btn btn-green width-100")= i18n('edit_profile')
+//-     else
+//-       a(href="/follow?target=#{user.username}", data-method="post", data-remote="true", data-relation=user.username, class="btn btn-green width-100")= i18n('follow')

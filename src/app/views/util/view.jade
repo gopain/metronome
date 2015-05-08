@@ -1,0 +1,18 @@
+mixin paginate(items, total, pathname)
+  - var pathname = pathname || '/'
+  - var pagesCount = Math.ceil(total / perPage)
+  - var prevPage = (currentPage > 1) ? currentPage - 1 : currentPage
+  - var nextPage = (currentPage < pagesCount) ? currentPage + 1 : currentPage
+
+  if total > perPage && currentPage <= pagesCount
+    .paginator
+      span= i18n("paginator_stat", offsetValue + 1, items.length + perPage * (currentPage - 1), total)
+      ul.pagination
+        li&attributes(currentPage == 1 ? { class: 'unavailable' } : {})
+          a(href="#{pathname}?p=#{prevPage}")
+            i.fa.fa-angle-left
+            = " " + i18n("prev_page")
+        li&attributes(currentPage == nextPage ? { class: 'unavailable' } : {})
+          a(href="#{pathname}?p=#{nextPage}")
+            = i18n("next_page") + " "
+            i.fa.fa-angle-right

@@ -1,0 +1,26 @@
+extends ../../layout/backend
+include ../../util/form
+
+block content
+  .panel
+    .category.index
+      table
+        thead
+          tr
+            th= i18n("name")
+            th.text-center= i18n("edit")
+            th.text-center= i18n("delete")
+        tbody
+          each category in categories
+            tr
+              td= category.name
+              td.text-center
+                a(href="/admin/category/#{category.id}/edit")
+                  span.fa.fa-edit
+              td.text-center
+                a(href="/admin/category/#{category.id}" data-method="delete")
+                  span.fa.fa-trash-o
+    include new
+
+block title
+  = i18n("categories")

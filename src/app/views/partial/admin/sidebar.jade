@@ -1,0 +1,5 @@
+.panel.shallow
+  ul.side-nav
+    for item in "topics|categories|users|tags|images".split('|')
+      li(data-tab-item=item)
+        a(href="/admin/#{item}")= i18n(item)

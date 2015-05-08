@@ -1,0 +1,29 @@
+extends ../layout/frontend
+include ../util/form
+
+block content
+  .panel
+    .topic.new
+      +form("/topic")(class="forms")
+        input(type="hidden" name="category_id" value="1")
+        label
+          span= i18n("title")
+          input(type="text" name="title" value="")
+        label
+          span= i18n("category")
+          table
+            tbody
+              each category in categories
+                tr
+                  td= category.name
+        label
+          span= i18n("body")
+        .textarea
+          textarea(name="body")
+        button.radius.small= i18n("create")
+
+block sidebar
+  .panel
+
+block title
+  = i18n("topic")

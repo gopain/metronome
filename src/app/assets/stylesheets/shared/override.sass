@@ -1,0 +1,118 @@
+.topbar-background
+  background-color: #009698
+
+.top-bar
+  background-color: transparent
+
+.contain-to-grid
+  &.fixed
+    @extend .topbar-background
+    +linear-gradient(to right, #07b05f 0, #00af92 50%, #00809f 100%)
+
+.top-bar-section
+  li:not(.has-form)
+    a:not(.button)
+      background-color: transparent
+      &:hover
+        background-color: rgba(white, .12)
+  ul
+    li
+      background-color: transparent
+
+.side-nav
+  li.active
+    a:first-child
+      border-right: 2px solid #53575b
+  &.inverse
+    li.active
+      a:first-child
+        border-left: 2px solid #53575b
+
+button,
+.button
+  background-color: #E0E0E0
+  color: rgba(#000, .625)
+  outline: none
+  &:hover,
+  &:focus
+    background-color: #EAEAEA
+    color: rgba(#000, .75)
+
+ul.pagination
+  margin: 0
+  li
+    height: auto
+    padding: 5px 0
+    a
+      padding: .5em .75em
+      font-size: .95em
+
+.ui-vcard
+  a.avatar
+    padding: 5px 5px
+    border: 1px solid rgba(#000, .12)
+    +border-radius(100%)
+  .stat
+    margin: 1.15em 0 0 0
+    padding: 0
+    li
+      float: left
+      a
+        display: block
+        color: #53575b
+        font-size: 1.65em
+        text-align: center
+        span
+          display: block
+          font-size: .625em
+          line-height: 32px
+          color: rgba(#000, .25)
+    +clearfix()
+
+.vcard
+  margin: 0
+  padding: 0
+  display: block
+  border-width: 0
+  @extend .ui-vcard
+
+.ui-table
+  width: 100%
+  max-width: 100%
+  border-width: 0
+  thead
+    background-color: white
+  tr
+    th,
+    td
+      padding: .875em .625em
+      border-bottom: 1px solid #EAEAEA
+    &:nth-of-type(even)
+      background-color: white !important
+
+.ui-tabs
+  border-bottom: 1px solid rgba(#000, .12)
+  .tab-title
+    padding: 0 5%
+    a
+      font-size: .875em
+      padding: .95em 2.15em
+      background-color: transparent
+      &:hover
+        background-color: transparent
+    &.active
+      a
+        border-bottom: 2px solid #53575b
+
+.ui-panel
+  border: none
+  background-color: white
+  +border-radius(.12em)
+  +box-shadow(0 1px 1px rgba(#000, .375), 0 0 1px rgba(#000, .625))
+
+table
+  @extend .ui-table
+.tabs
+  @extend .ui-tabs
+.panel
+  @extend .ui-panel

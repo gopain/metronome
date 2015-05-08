@@ -1,0 +1,9 @@
+include ../util/form
+
+.reply.new
+  +form("/reply")(class="forms" data-remote="true")
+    input(type="hidden" name="topic_id" value=topic.id)
+    label
+      span= i18n("body")
+      textarea(name="content" placeholder="...")
+    button.radius.small= i18n("create")

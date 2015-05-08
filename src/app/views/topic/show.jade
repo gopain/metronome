@@ -1,0 +1,39 @@
+extends ../layout/frontend
+
+block content
+  .panel.shallow
+    .topic.show
+      .panel-header
+        .title= topic.title
+        a.avatar.radius(href=topic.user.username)
+          img(src=topic.user.avatar_url)
+      .panel-body
+        .text!= topic.text.html
+      .panel-footer
+        span= new Date(topic.created_at)
+        .likeable(data-url="/topic/#{topic.identifier}/likeable")
+          a(href="/topic/#{topic.identifier}/like" data-method="post" data-remote="true")
+            span.icon-heart
+  .panel
+    include ../reply/index
+
+  .panel
+    include ../reply/new
+
+  //- if replies.length
+  //-   .boxify
+  //-     include ../reply/index
+  //- .boxify
+  //-   if isAuthenticated
+  //-     include ../reply/new
+  //-   else
+  //-     .reply.login
+  //-       p
+  //-         = i18n("login_to_reply")
+  //-         a(href="/login")= i18n("login")
+
+block sidebar
+  .panel
+
+block title
+  = i18n("topic")

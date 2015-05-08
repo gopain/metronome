@@ -1,0 +1,10 @@
+//- li(class="ownerred", data-reply-id=reply.id)
+//-   .related
+//-     a(href="/#{reply.user.username}")= reply.user.username
+//-     span(title=reply.created_at.toISOString(), class="timeago")
+//-     span(class="at")= "#"
+//-     a(href="/reply/#{reply.id}", data-method="delete", data-remote="true", class="delete")= " [" + i18n("delete") + "]"
+//-     a(href="/reply/#{reply.id}/edit", class="edit")= " [" + i18n("edit") + "]"
+//-     a(href="/#{reply.user.username}", class="avatar avatar-rounded")
+//-       img(src=reply.user.avatar_url, alt="@#{reply.user.username}")
+//-   .markup!= reply.content

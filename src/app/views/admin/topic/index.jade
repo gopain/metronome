@@ -1,0 +1,32 @@
+extends ../../layout/backend
+include ../../util/date
+include ../../util/view
+
+block content
+  .panel
+    .topic.index
+      table
+        thead
+          tr
+            th= i18n("title")
+            th= i18n("created_at")
+            th.text-center= i18n("edit")
+            th.text-center= i18n("delete")
+        tbody
+          each topic in topics
+            tr
+              td
+                = topic.title
+                i= "@" + topic.user.username
+              td= new Date(topic.created_at).toISOString().slice(0, 10)
+              td.text-center
+                a(href="/admin/topic/#{topic.id}/edit")
+                  span.fa.fa-edit
+              td.text-center
+                a(href="/admin/topic/#{topic.id}" data-method="delete")
+                  span.fa.fa-trash-o
+
+    +paginate(topics, topicsCount, "/admin/topics")
+
+block title
+  = i18n("topics")

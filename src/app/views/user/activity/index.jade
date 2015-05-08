@@ -1,0 +1,16 @@
+extends ../../layout/frontend
+
+block content
+  .panel.shallow
+    ul.tabs.tiles.with-2
+      li.tab-title
+        a.text-center(href="/#{user.username}")= i18n("topics")
+      li.tab-title.active
+        a.text-center(href="/#{user.username}/activity")= i18n("activity")
+
+block sidebar
+  .panel
+    include ../../partial/vcard
+
+block title
+  = i18n("user")

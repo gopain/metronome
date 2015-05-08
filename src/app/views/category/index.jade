@@ -1,0 +1,6 @@
+ul.side-nav.category.index
+  for category in categories
+    li(data-tab-item=category.semantic_url)
+      a(href="/category/#{category.semantic_url}")
+        = category.name
+        span= category.topics_count

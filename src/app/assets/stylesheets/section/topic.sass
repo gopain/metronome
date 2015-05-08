@@ -1,0 +1,55 @@
+.topic
+  &.index
+    margin: 0
+    padding: .5em 0
+    li
+      padding: .5em 0
+      list-style: none
+      position: relative
+      border-bottom: 1px solid rgba(#53575b, .12)
+    .replies-count
+      position: absolute
+      right: 16px
+      top: .5em
+      .label
+        background-color: #53575b
+    .avatar
+      position: absolute
+      left: 16px
+      img
+        width: 40px
+    .title
+      margin: 0 72px 4px 72px
+      display: block
+    .stats
+      margin: 0 72px
+      font-size: .85em
+      color: rgba(#000, .5)
+  &.show
+    .likeable
+      float: right
+      padding: 0 .5em
+      font-size: 1.15em
+      line-height: 40px
+      margin-right: .25em
+      display: inline-block
+      a
+        display: block
+        color: rgba(#000, .25)
+        +transition(color ease 0.5s)
+      &.actived
+        .icon-heart
+          color: #FF5B72
+    .avatar
+      position: absolute
+      bottom: 8px
+      right: 16px
+      img
+        width: 40px
+    .title
+      margin: 0 72px 0 16px
+      font-weight: bold
+      line-height: 50px
+      font-size: 1.15em
+    .text
+      padding: 1em 1em

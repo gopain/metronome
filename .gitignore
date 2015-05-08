@@ -1,0 +1,10 @@
+.vagrant/
+.sass-cache/
+node_modules/
+rethinkdb_data/
+*.DS_Store
+*.sqlite3
+*.sqlite
+*.lock
+*.log
+*.env

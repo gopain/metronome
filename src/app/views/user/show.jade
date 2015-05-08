@@ -1,0 +1,43 @@
+extends ../layout/frontend
+
+block content
+  .panel.shallow
+    ul.tabs.tiles.with-2
+      li.tab-title.active
+        a.text-center(href="/#{user.username}")= i18n("topics")
+      li.tab-title
+        a.text-center(href="/#{user.username}/activity")= i18n("activity")
+
+    //- ul.profile.show
+    //-   - var profile = user.profile
+    //-   li
+    //-     span= i18n("username")
+    //-     = user.username
+    //-   li
+    //-     span= i18n("nickname")
+    //-     = profile.nickname
+    //-   li
+    //-     span= i18n("school")
+    //-     = profile.school
+    //-   li
+    //-     span= i18n("location")
+    //-     = profile.location
+    //-   li
+    //-     span= i18n("website_url")
+    //-     = profile.website_url
+    //-   li
+    //-     span= i18n("contact_email")
+    //-     = profile.contact_email
+    //-   li
+    //-     span= i18n("biography")
+    //-     p= profile.biography
+    //-   li
+    //-     span= i18n("join_on")
+    //-     = user.created_at.toISOString()
+
+block sidebar
+  .panel
+    include ../partial/vcard
+
+block title
+  = i18n("user")

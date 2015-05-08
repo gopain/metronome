@@ -1,0 +1,24 @@
+extends ../layout/passport
+include ../util/form
+
+block content
+  .panel
+    .user.new
+      if alert
+        .alert-box.secondary
+          = i18n(alert)
+          a.close(href="#")!= "&times;"
+      +form("/user")(class="forms")
+        label
+          span= i18n("username")
+          +input(user)(name="username")
+        label
+          span= i18n("email")
+          +input(user)(name="email")
+        label
+          span= i18n("password")
+          input(type="password" name="password")
+        button.radius.small= i18n("signup")
+
+block title
+  = i18n("signup")

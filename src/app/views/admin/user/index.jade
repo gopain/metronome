@@ -1,0 +1,18 @@
+extends ../../layout/backend
+
+block content
+  .panel
+    .user.index
+      table
+        thead
+          tr
+            th= i18n("username")
+            th= i18n("email")
+        tbody
+          each user in users
+            tr
+              td= user.username
+              td= user.email
+
+block title
+  = i18n("users")

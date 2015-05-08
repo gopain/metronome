@@ -1,0 +1,3 @@
+mixin timeago(timestamp)
+  - var datetime = new Date(timestamp).toISOString()
+  span.timeago(title=datetime)= datetime

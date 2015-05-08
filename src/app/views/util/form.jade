@@ -1,0 +1,17 @@
+mixin form(action, files)
+  - var files = files ? { enctype: 'multipart/form-data' } : {}
+  - var action = typeof action == 'string' ? action : '/' + action.join('/')
+  - var method = attributes.method ? attributes.method.toUpperCase() : 'POST'
+
+  form(action=action method="POST" accept-charset="UTF-8" data-remote!=attributes["data-remote"])&attributes({ class: attributes.class })&attributes(files)
+
+    if attributes.method
+      input(type="hidden" name="_method" value=method)
+    input(type="hidden" name="_csrf" value=csrf)
+
+    if block
+      block
+
+mixin input(model)
+  - var value = model ? { value: model[attributes.name] } : {}
+  input(type="text" name=attributes.name)&attributes(value)

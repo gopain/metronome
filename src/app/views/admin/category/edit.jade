@@ -1,0 +1,17 @@
+extends ../../layout/backend
+include ../../util/form
+
+block content
+  .panel
+    .category.edit
+      +form(["admin/category", category.id])(class="forms" method="patch")
+        label
+          span= i18n("name")
+          input(type="text" name="name" value=category.name)
+        label
+          span= i18n("identifier")
+          input(type="text" name="identifier" value=category.identifier)
+        button.radius.small= i18n("save")
+
+block title
+  = i18n("categories")

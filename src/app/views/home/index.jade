@@ -1,0 +1,30 @@
+extends ../layout/frontend
+include ../util/date
+include ../util/view
+
+block content
+  .panel.shallow
+    ul.tabs.tiles.with-2
+      li.tab-title.active
+        a.text-center(href="/")= i18n("latest")
+      li.tab-title
+        a.text-center(href="/popular")= i18n("popular")
+    ul.topic.index
+      each topic in topics
+        li
+          a.avatar.radius(href=topic.user.username)
+            img(src=topic.user.avatar_url)
+          a.title(href="/topic/#{topic.identifier}")
+            = topic.title
+          a.replies-count(href="/topic/#{topic.id}")
+            span.label.round= 10
+          .stats
+            +timeago(topic.created_at)
+    +paginate(topics, topicsCount)
+
+block sidebar
+  .panel.shallow
+    include ../category/index
+
+block title
+  = i18n("topic")

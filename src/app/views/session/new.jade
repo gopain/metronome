@@ -1,0 +1,21 @@
+extends ../layout/passport
+include ../util/form
+
+block content
+  .panel
+    .session.new
+      if alert
+        .alert-box.secondary
+          = i18n(alert)
+          a.close(href="#")!= "&times;"
+      +form("/session")(class="forms")
+        label
+          span= i18n("account")
+          input(type="text" name="login")
+        label
+          span= i18n("password")
+          input(type="password" name="password")
+        button.radius.small= i18n("login")
+
+block title
+  = i18n("login")

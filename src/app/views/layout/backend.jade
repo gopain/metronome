@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    include ../partial/head
+  body
+    include ../partial/topbar
+    .header
+    .container
+      .row
+        .small-3.medium-3.large-3.columns
+          include ../partial/admin/sidebar
+        .small-9.medium-9.large-9.columns
+          block content
+    .footer

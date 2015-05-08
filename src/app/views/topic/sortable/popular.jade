@@ -1,0 +1,16 @@
+extends ../../layout/frontend
+include ../../util/date
+
+block content
+  .panel.shallow
+    ul.tabs.tiles.with-2
+      li.tab-title
+        a.text-center(href="/")= i18n("latest")
+      li.tab-title.active
+        a.text-center(href="/popular")= i18n("popular")
+
+block sidebar
+  .panel
+
+block title
+  = i18n("topic")

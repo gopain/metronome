@@ -1,0 +1,32 @@
+$prefix: -webkit- -moz- -ms- -o- ""
+
+=border-radius($var...)
+  @each $pf in $prefix
+    #{$pf}border-radius: $var
+
+=box-shadow($var...)
+  @each $pf in $prefix
+    #{$pf}box-shadow: $var
+
+=transition($var...)
+  @each $pf in $prefix
+    #{$pf}transition: $var
+
+=linear-gradient($var...)
+  @each $pf in $prefix
+    background-image: #{$pf}linear-gradient($var)
+
+=white-space
+  white-space: -webkit-pre-wrap
+  white-space: -moz-pre-wrap
+  white-space: -o-pre-wrap
+  white-space: pre-wrap
+  word-wrap: break-word
+
+=clearfix
+  &:before,
+  &:after
+    content: " "
+    display: table
+  &:after
+    clear: both

@@ -1,0 +1,32 @@
+extends ../../layout/frontend
+include ../../util/date
+include ../../util/view
+
+block content
+  .panel.shallow
+    .search.index
+      form(action="/search" accept-charset="UTF-8" class="forms")
+        input(type="text" name="q" value=queryString)
+        span
+          i.icon-search
+    if topics.length
+      ul.topic.index
+        each topic in topics
+          li
+            a.avatar.radius(href=topic.user.username)
+              img(src=topic.user.avatar_url)
+            a.title(href="/topic/#{topic.identifier}")
+              = topic.title
+            a.replies-count(href="/topic/#{topic.id}")
+              span.label.round= 10
+            .stats
+              +timeago(topic.created_at)
+      +paginate(topics, topicsCount, "/search")
+    else
+      p= i18n("empty")
+
+block sidebar
+  .panel
+
+block title
+  = i18n("search")

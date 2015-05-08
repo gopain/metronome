@@ -1,0 +1,30 @@
+.fixed.contain-to-grid
+  .top-bar(data-topbar="true" role="navigation")
+    ul.title-area
+      li.name
+        h1
+          a(href="/")
+            span.fa.fa-maxcdn
+      li.toggle-topbar.menu-icon
+        a(href="#")
+          span= Menu
+    section.top-bar-section
+      ul.right
+        if isAuthenticated
+          li
+            a(href="/admin")
+              span.icon-cloud
+          li
+            a(href="/search")
+              span.icon-search
+          li
+            a(href="/topic/new")
+              span.icon-plus
+          li
+            a(href="/logout" data-method="delete")
+              span.icon-power
+        else
+          li
+            a(href="/login")= i18n("login")
+          li
+            a(href="/signup")= i18n("signup")
