@@ -8,6 +8,8 @@ $ ->
   ($ '.alert-box a.close').click (e) ->
     e.preventDefault()
     $(@).parent().fadeOut(200)
+  ($ '.search .query').click (e) ->
+    $(@).parent('form').submit()
 
   likeable = $ '.topic.show .likeable'
   if likeable.length
