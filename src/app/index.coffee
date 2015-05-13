@@ -36,7 +36,7 @@ module.exports = (router, bookshelf, config) ->
     .delete '/logout', session.destroy
     .get '/search'    , for_topic.sortable.search
     .get '/popular', for_topic.sortable.popular
-    .get '/category/:semantic_url', for_topic.sortable.category
+    .get '/category/:identifier', for_topic.sortable.category
     .get '/topic/new' , topic.new
     .post '/topic', topic.store
     .get '/topic/:id', topic.show

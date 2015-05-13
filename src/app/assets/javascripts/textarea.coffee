@@ -1,5 +1,5 @@
 $ ->
-  textarea = $ 'textarea'
+  textarea = $ 'textarea.markdown'
 
   if textarea.length
     CodeMirror.fromTextArea textarea[0], {

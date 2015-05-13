@@ -1,6 +1,6 @@
-ul.side-nav.category.index
+ul.side-nav.inverse.category.index
   for category in categories
-    li(data-tab-item=category.semantic_url)
-      a(href="/category/#{category.semantic_url}")
+    li(data-tab-item=category.identifier)
+      a(href="/category/#{category.identifier}")
         = category.name
-        span= category.topics_count
+        span.label.round.secondary.right= category.topics_count

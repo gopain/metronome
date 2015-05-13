@@ -35,13 +35,19 @@ module.exports = (bookshelf, config) ->
     yield @render 'topic/sortable/popular'
 
   category: ->
-    category = yield Category.where({ semantic_url: @params.semantic_url }).fetch().exec (error, category) ->
+    category = yield Category.where({ identifier: @params.identifier }).fetch().exec (error, category) ->
 
-    if category
-      topics = yield Topic.where({ category_id: category.get 'id' }).fetchAll({ withRelated: ['user'] }).exec (error, topics) ->
-      yield @render 'topic/sortable/category'
-    else
-      yield @render '404'
+    unless category
+      return yield @render '404'
+
+    categories = yield Category.forge().fetchAll().exec (error, categories) ->
+
+    topics = yield Topic.where({ category_id: category.get 'id' }).fetchAll({ withRelated: ['user'] }).exec (error, topics) ->
+
+    yield @render 'topic/sortable/category', {
+      category   : category.toJSON()
+      categories : categories.toJSON()
+    }
 
   likes: ->
     yield @render 'topic/sortable/likes'

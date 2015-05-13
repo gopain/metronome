@@ -4,13 +4,14 @@ include ../../util/date
 block content
   .panel.shallow
     ul.tabs.tiles.with-2
-      li.tab-title
-        a.text-center(href="/")= i18n("latest")
       li.tab-title.active
-        a.text-center(href="/popular")= i18n("popular")
+        a.text-center(href="/category/#{category.identifier}")= i18n("latest")
+      li.tab-title
+        a.text-center(href="/category/#{category.identifier}/popular")= i18n("popular")
 
 block sidebar
-  .panel
+  .panel.shallow
+    include ../../category/index
 
 block title
   = i18n("topic")
